@@ -1,19 +1,7 @@
-
 module Acme
-
   class API < Grape::API
-
-    version 'v1', :using => :header, :vendor => 'acme', :format => :json
-    
-    resource :system do
-
-      desc "Returns pong."
-      get :ping do
-        "pong"
-      end
-
-    end
-
+    mount ::Acme::API_v1
+    mount ::Acme::API_v2
   end
 end
 
