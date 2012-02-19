@@ -4,3 +4,11 @@ gem "rack", "1.3.5"
 gem "rack-contrib", :git => "https://github.com/rack/rack-contrib.git", :require => "rack/contrib"
 gem "grape", :git => "http://github.com/intridea/grape.git", :branch => "frontier"
 
+group :test do
+  gem "rspec"
+  gem "rack-test"
+  gem "rspec-core"
+  gem "rspec-expectations"
+  gem "rspec-mocks"
+end
+
