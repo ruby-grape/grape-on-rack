@@ -10,14 +10,32 @@ GIT
       rack
       rack-mount
 
+GIT
+  remote: https://github.com/jnicklas/capybara.git
+  revision: c387abafd94a053b7f741e2bd7105b5fc2227a08
+  specs:
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    childprocess (0.3.1)
+      ffi (~> 1.0.6)
     diff-lcs (1.1.3)
+    ffi (1.0.11)
     hashie (1.2.0)
     json (1.6.5)
+    json_pure (1.6.5)
+    mime-types (1.17.2)
     multi_json (1.1.0)
     multi_xml (0.4.1)
+    nokogiri (1.5.0)
     rack (1.3.5)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
@@ -31,11 +49,20 @@ GEM
     rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.8.0)
+    rubyzip (0.9.6.1)
+    selenium-webdriver (2.13.0)
+      childprocess (>= 0.2.1)
+      ffi (~> 1.0.9)
+      json_pure
+      rubyzip
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara!
   grape!
   json (= 1.6.5)
   rack (= 1.3.5)

@@ -11,3 +11,8 @@ RSpec.configure do |config|
   config.expect_with :rspec
 end
 
+require 'capybara/rspec'
+Capybara.configure do |config|
+  config.app = Acme::Instance.new
+end
+

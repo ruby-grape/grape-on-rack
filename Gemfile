@@ -10,5 +10,6 @@ group :test do
   gem "rspec-core"
   gem "rspec-expectations"
   gem "rspec-mocks"
+  gem "capybara", :git => "https://github.com/jnicklas/capybara.git"
 end
 
