@@ -4,7 +4,7 @@ module Acme
     resource :system do
       desc "Returns pong."
       get :ping do
-        "pong"
+        { :ping => "pong" }
       end
     end
   end

@@ -11,7 +11,7 @@ describe Acme::API do
     context "system" do
       it "ping" do
         get "/api/v2/system/zing"
-        last_response.body.should == "zong"
+        last_response.body.should == { :zing => "zong" }.to_json
       end
     end
   end

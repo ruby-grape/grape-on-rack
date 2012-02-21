@@ -4,7 +4,7 @@ module Acme
     resource :system do
       desc "Returns zong."
       get :zing do
-        "zong"
+        { :zing => "zong" }
       end
     end
   end
