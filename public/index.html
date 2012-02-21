@@ -1,7 +1,9 @@
 <html>
  <head>
   <title>Rack Powers Web APIs</title>
- </head>
+  <script src="/scripts/jquery-1.7.1.min.js"></script>
+  <script src="/scripts/ring.js"></script>
+</head>
  <body>
   <h1>Rack Powers Web APIs</h1>
   <a href="http://rack.rubyforge.org/">
@@ -9,6 +11,11 @@
   </a>
   <ul>
    <li><a href="/api/v1/system/ping.json">Ping!</a></li>
+   <li>
+    <div id='ring_value'>
+      fetching ring value ...
+    </div>
+   </li>
   </ul>
  </body>
 </html>
