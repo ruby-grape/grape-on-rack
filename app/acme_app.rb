@@ -1,5 +1,5 @@
 module Acme
-  class Instance
+  class App
     def initialize
       @filenames = [ '', '.html', 'index.html', '/index.html' ]
       @rack_static = ::Rack::Static.new(
