@@ -13,7 +13,7 @@ module Acme
       # static files
       @filenames.each do |path|
         response = @rack_static.call(env.merge({'PATH_INFO' => request_path + path}))
-        return response if 200 == response[0]
+        return response if response[0] != 404
       end
       # api
       Acme::API.call(env)
