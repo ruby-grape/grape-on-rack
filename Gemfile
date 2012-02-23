@@ -4,6 +4,12 @@ gem "rack", "1.3.5"
 gem "grape", :git => "http://github.com/intridea/grape.git", :branch => "frontier"
 gem "json", "1.6.5"
 
+group :development do
+  gem "guard"
+  gem "guard-bundler"
+  gem "guard-rack"
+end
+
 group :test do
   gem "rspec"
   gem "rack-test"
