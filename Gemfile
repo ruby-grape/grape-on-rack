@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "rack", "1.3.5"
-gem "grape", :git => "http://github.com/intridea/grape.git", :branch => "frontier"
+gem "grape", "0.2.0"
 gem "json", "1.6.5"
 
 group :development do

@@ -16,7 +16,14 @@ module Acme
         return response if response[0] != 404
       end
       # api
-      Acme::API.call(env)
+      response = Acme::API.call(env)
+      # error pages
+      case response[0]
+      when 404, 500
+        @rack_static.call(env.merge({'PATH_INFO' => "/errors/#{response[0]}.html"}))
+      else
+        response
+      end
     end
   end
 end

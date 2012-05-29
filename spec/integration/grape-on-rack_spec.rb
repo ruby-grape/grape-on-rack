@@ -21,5 +21,21 @@ describe "Grape on RACK", :js => true, :type => :request do
       end
     end
   end
+  context "page that doesn't exist" do
+    before :each do
+      visit "/invalid"
+    end
+    it "displays 404 page" do
+      page.find("title").text.should == "Page Not Found"
+    end
+  end
+  context "exception" do
+    before :each do
+      visit "/api/v1/system/raise"
+    end
+    it "displays 500 page" do
+      page.find("title").text.should == "Unexpected Error"
+    end
+  end
 end
 
