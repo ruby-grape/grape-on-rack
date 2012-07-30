@@ -42,7 +42,7 @@ describe "Grape on RACK", :js => true, :type => :request do
       visit "/"
       url = "http://localhost:#{Capybara.server_port}/api/v5/spline"
       json = '{"reticulated":"false"}'
-      rc = `curl -d '#{json}' #{url} -H 'Content-Type:application/json' -s`
+      rc = `curl -d '#{json}' #{url} -H 'Accept: application/json' -H 'Content-Type:application/json' -s`
       rc.should == json
     end
   end
