@@ -14,5 +14,6 @@ end
 require 'capybara/rspec'
 Capybara.configure do |config|
   config.app = Acme::App.new
+  config.server_port = 9293
 end
 

@@ -37,5 +37,14 @@ describe "Grape on RACK", :js => true, :type => :request do
       page.find("title").text.should == "Unexpected Error"
     end
   end
+  context "curl" do
+    it "api v5" do
+      visit "/"
+      url = "http://localhost:#{Capybara.server_port}/api/v5/spline"
+      json = '{"reticulated":"false"}'
+      rc = `curl -d '#{json}' #{url} -H 'Content-Type:application/json' -s`
+      rc.should == json
+    end
+  end
 end
 

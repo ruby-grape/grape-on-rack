@@ -6,6 +6,7 @@ module Acme
     mount ::Acme::API_v2
     mount ::Acme::API_v3
     mount ::Acme::API_v4
+    mount ::Acme::API_v5
   end
 end
 
