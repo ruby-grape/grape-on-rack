@@ -10,7 +10,7 @@ describe "Grape on RACK", :js => true, :type => :request do
     end
     context "ring" do
       before :each do
-        @rang = Acme::API_v3.class_variable_get(:@@rang)
+        @rang = Acme::API_v3.send(:class_variable_get, :@@rang)
       end
       it "increments the ring counter" do
         page.find("#ring_value").should have_content "rang #{@rang} time(s), click here to ring again"
