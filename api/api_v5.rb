@@ -1,5 +1,3 @@
-require 'api_v4_decorator'
-
 module Acme
   class API_v5 < Grape::API
     version 'v5', :using => :path, :vendor => 'acme', :format => :json
