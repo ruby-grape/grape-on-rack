@@ -3,9 +3,9 @@ module Acme
     version 'v5', :using => :path, :vendor => 'acme', :format => :json
     desc "Creates a spline that can be reticulated."
     resource :spline do
-	  post do
-	  	{ :reticulated => params[:reticulated] }
-	  end
+      post do
+        { :reticulated => params[:reticulated] }
+      end
     end
   end
 end
