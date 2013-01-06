@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Grape on RACK", :js => true, :type => :request do
+describe "Grape on RACK", :js => true, :type => :feature do
   context "homepage" do
     before :each do
       visit "/"
