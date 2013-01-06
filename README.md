@@ -11,4 +11,17 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * API v4: demonstrates a middleware that wraps all responses and always returns HTTP code 200
 * API v5: demonstrates a `POST` with JSON data
 
+Run
+---
 
+```
+bundle install
+rackup
+```
+
+Try http://localhost:9292/api/v1/system/ping.
+
+New Relic
+---------
+
+The application is setup with NewRelic w/ Developer Mode. Navigate to http://localhost:9292/newrelic after making some API calls.

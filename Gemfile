@@ -3,6 +3,8 @@ source "http://rubygems.org"
 gem "rack", "~> 1.4.1"
 gem "grape", :git => "https://github.com/intridea/grape.git"
 gem "json", "~> 1.7.6"
+gem "newrelic_rpm", "~> 3.5.4.34"
+gem "newrelic-grape", "~> 1.1.0"
 
 group :development do
   gem "rake", "~> 10.0.3"
