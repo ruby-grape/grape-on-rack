@@ -9,6 +9,11 @@ require File.expand_path("../../config/environment", __FILE__)
 RSpec.configure do |config|
   config.mock_with :rspec
   config.expect_with :rspec
+  config.include Warden::Test::Helpers
+  config.include Rack::Test::Methods
+  config.after :each do
+    Warden.test_reset!
+  end
 end
 
 require 'capybara/rspec'
