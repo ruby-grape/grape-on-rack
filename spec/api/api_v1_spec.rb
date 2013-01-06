@@ -4,7 +4,7 @@ describe Acme::API do
   include Rack::Test::Methods
 
   def app
-    Acme::API
+    Rackup::app.to_app
   end
     
   context "v1" do

@@ -12,4 +12,4 @@ end
 
 require 'api'
 require 'acme_app'
-
+require 'rack_app'

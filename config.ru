@@ -7,11 +7,4 @@ if ENV['RACK_ENV'] == 'development'
 end
 
 NewRelic::Agent.manual_start
-use Rack::Session::Cookie
-Warden::Manager.serialize_into_session { |user| user.id }
-Warden::Manager.serialize_from_session { |id| User.get(id) }
-use Warden::Manager do |manager|
-  manager.default_strategies :password, :basic
-  manager.failure_app = Acme::BadAuthentication
-end
-run Acme::App.new
+run Rackup::app.to_app
