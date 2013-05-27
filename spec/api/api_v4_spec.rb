@@ -6,7 +6,7 @@ describe Acme::API do
   def app
     Acme::API
   end
-    
+
   context "v4" do
     it "GET ping wraps body" do
       get "/api/v4/ping"

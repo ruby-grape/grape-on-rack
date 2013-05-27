@@ -1,12 +1,12 @@
 module Acme
   class API_v4_Decorator
     def initialize(app)
-      @app = app       
-    end                
+      @app = app
+    end
     def call(env)
-      status, headers, bodies = @app.call(env)
-      bodies = bodies.map do |body|
-        { :body => body, :status => status }
+      status, headers, body_proxy = @app.call(env)
+      bodies = body_proxy.body.map do |body|
+        { :body => JSON.parse(body), :status => status }.to_json
       end
       [ 200, headers, bodies ]
     end
