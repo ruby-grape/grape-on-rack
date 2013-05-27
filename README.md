@@ -10,6 +10,7 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * API v3: demonstrates `POST` and `PUT`
 * API v4: demonstrates a middleware that wraps all responses and always returns HTTP code 200
 * API v5: demonstrates a `POST` with JSON data
+* API v6: demonstrates how to overwrite the default content-type
 
 Run
 ---
