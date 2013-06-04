@@ -1,5 +1,5 @@
 module Acme
-  class API_v4_Decorator
+  class Wrap_Response_Decorator
     def initialize(app)
       @app = app
     end
