@@ -8,6 +8,7 @@ module Acme
     mount ::Acme::API_v4
     mount ::Acme::API_v5
     mount ::Acme::API_v6
+    mount ::Acme::API_v7
   end
 end
 
