@@ -33,7 +33,7 @@ Loading NewRelic in developer mode ...
 Navigate to http://localhost:9292/api/ping with a browser or use `curl`.
 
 ```
-$ curl http://localhost:9292/api
+$ curl http://localhost:9292/api/ping
 
 {"ping":"pong"}
 ```
