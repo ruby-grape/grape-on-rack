@@ -1,5 +1,6 @@
 module Acme
   class App
+
     def initialize
       @filenames = [ '', '.html', 'index.html', '/index.html' ]
       @rack_static = ::Rack::Static.new(
@@ -7,6 +8,21 @@ module Acme
           :root => File.expand_path('../../public', __FILE__),
           :urls => %w[/]
         })
+    end
+
+    def self.instance
+      @instance ||= Rack::Builder.new do
+        api = Acme::API
+
+        use Rack::Cors do
+          allow do
+            origins '*'
+            resource '*', headers: :any, methods: :get
+          end
+        end
+
+        run api
+      end.to_app
     end
 
     def call(env)

@@ -8,5 +8,5 @@ end
 
 NewRelic::Agent.manual_start
 
-run Acme::App.new
+run Acme::App.instance
 

@@ -54,6 +54,11 @@ $ curl -X POST -i -F image_file=@spec/fixtures/grape_logo.png http://localhost:9
 {"filename":"grape_logo.png","size":4272}
 ```
 
+Explore the API
+---------------
+
+Explore the API using [Swagger UI](http://petstore.swagger.wordnik.com). Run the application and point the explorer to `http://localhost:9292/api/swagger_doc`.
+
 New Relic
 ---------
 

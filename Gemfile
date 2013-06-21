@@ -5,6 +5,8 @@ gem "grape", :git => "https://github.com/intridea/grape.git"
 gem "json", "~> 1.7.7"
 gem "newrelic_rpm", "~> 3.5.4.34"
 gem "newrelic-grape", "~> 1.1.0"
+gem "rack-cors", "~> 0.2.8"
+gem "grape-swagger", "~> 0.6.0"
 
 group :development do
   gem "rake", "~> 10.0.3"

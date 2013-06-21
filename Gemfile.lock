@@ -33,6 +33,9 @@ GEM
     descendants_tracker (0.0.1)
     diff-lcs (1.2.4)
     ffi (1.8.1)
+    grape-swagger (0.6.0)
+      grape (>= 0.2.0)
+      kramdown
     growl (1.0.3)
     guard (1.6.2)
       listen (>= 0.6.0)
@@ -50,6 +53,7 @@ GEM
     hashie (2.0.5)
     i18n (0.6.1)
     json (1.7.7)
+    kramdown (1.0.2)
     listen (0.7.2)
     lumberjack (1.0.2)
     method_source (0.8.1)
@@ -68,6 +72,8 @@ GEM
     rack (1.4.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-cors (0.2.8)
+      rack
     rack-mount (0.8.3)
       rack (>= 1.0.0)
     rack-test (0.6.2)
@@ -104,6 +110,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.1.0)
   grape!
+  grape-swagger (~> 0.6.0)
   guard (~> 1.6.1)
   guard-bundler (~> 1.0.0)
   guard-rack (~> 1.2.2)
@@ -111,6 +118,7 @@ DEPENDENCIES
   newrelic-grape (~> 1.1.0)
   newrelic_rpm (~> 3.5.4.34)
   rack (~> 1.4.1)
+  rack-cors (~> 0.2.8)
   rack-test (~> 0.6.2)
   rake (~> 10.0.3)
   rspec (~> 2.13.0)
