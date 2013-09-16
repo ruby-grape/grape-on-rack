@@ -10,6 +10,7 @@ module Acme
     mount ::Acme::Post_Json
     mount ::Acme::Content_Type
     mount ::Acme::Upload_File
+    mount ::Acme::Entities::API
     add_swagger_documentation api_version: 'v1'
   end
 end
