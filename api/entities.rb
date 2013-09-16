@@ -14,6 +14,10 @@ module Acme
 
     class API < Grape::API
       format :json
+      content_type :xml, 'application/xml'
+      formatter :xml, Proc.new { |object|
+        object[object.keys.first].to_xml :root => object.keys.first
+      }
       desc "Exposes an entity"
       namespace :entities do
         get ':id' do
@@ -24,3 +28,4 @@ module Acme
 
   end
 end
+

@@ -32,5 +32,19 @@ describe Acme::API do
     })
   end
 
+  it "uses a custom formatter to reset xml root" do
+    get "/api/entities/123.xml?foo=bar"
+    last_response.status.should == 200
+    last_response.body.should == <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+  <id>123</id>
+  <length type="integer">10</length>
+  <weight>20kg</weight>
+  <foo>bar</foo>
+</tool>
+XML
+  end
+
 end
 
