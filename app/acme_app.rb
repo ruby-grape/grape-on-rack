@@ -12,8 +12,6 @@ module Acme
 
     def self.instance
       @instance ||= Rack::Builder.new do
-        api = Acme::API
-
         use Rack::Cors do
           allow do
             origins '*'
@@ -21,7 +19,7 @@ module Acme
           end
         end
 
-        run api
+        run Acme::App.new
       end.to_app
     end
 
@@ -42,7 +40,8 @@ module Acme
       # Serve error pages or respond with API response
       case response[0]
       when 404, 500
-        @rack_static.call(env.merge({'PATH_INFO' => "/errors/#{response[0]}.html"}))
+        content = @rack_static.call(env.merge({'PATH_INFO' => "/errors/#{response[0]}.html"}))
+        [ response[0], content[1], content[2] ]
       else
         response
       end
