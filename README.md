@@ -14,7 +14,7 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * [wrap_response](api/wrap_response.rb): a middleware that wraps all responses and always returns HTTP code 200
 * [content_type](api/content_type.rb): an example that overrides the default `Content-Type`
 * [upload_file](api/upload_file.rb): an example that demonstrates a file upload
-* [entites](api/entites.rb): an example of using [grape-entity](https://github.com/intridea/grape-entity)
+* [entites](api/entities.rb): an example of using [grape-entity](https://github.com/intridea/grape-entity)
 
 Run
 ---
