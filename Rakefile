@@ -20,3 +20,14 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 
 task :default => :spec
+
+task :environment do
+  ENV["RACK_ENV"] ||= 'development'
+  require File.expand_path("../config/environment", __FILE__)
+end
+
+task :routes => :environment do
+  Acme::API.routes.each do |route|
+    p route
+  end
+end

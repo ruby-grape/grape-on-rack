@@ -54,6 +54,13 @@ $ curl -X POST -i -F image_file=@spec/fixtures/grape_logo.png http://localhost:9
 {"filename":"grape_logo.png","size":4272}
 ```
 
+List Routes
+-----------
+
+```
+rake routes
+```
+
 Explore the API
 ---------------
 
