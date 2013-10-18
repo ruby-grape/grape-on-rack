@@ -1,5 +1,5 @@
 module Acme
-  class Rescue_From < Grape::API
+  class Ping < Grape::API
     format :json
     get '/ping' do
       { :ping => "pong" }

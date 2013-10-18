@@ -2,6 +2,7 @@ module Acme
   class API < Grape::API
     prefix 'api'
     format :json
+    mount ::Acme::Ping
     mount ::Acme::Rescue_From
     mount ::Acme::Path_Versioning
     mount ::Acme::Header_Versioning
