@@ -12,10 +12,11 @@ describe "Grape on RACK", :js => true, :type => :feature do
         visit "/"
       end
       it "increments the ring counter" do
-        find("#ring_value").should have_content "rang #{@rang + 1} time(s), click here to ring again"
+        find("#ring_value").should have_content "rang #{@rang + 1} time(s)"
+        find("#ring_action").should have_content "click here to ring again"
         3.times do |i|
-          find("#ring_value").click
-          find("#ring_value").should have_content "rang #{@rang + i + 2} time(s), click here to ring again"
+          find("#ring_action").click
+          find("#ring_value").should have_content "rang #{@rang + i + 2} time(s)"
         end
       end
     end
