@@ -16,6 +16,11 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * [upload_file](api/upload_file.rb): an example that demonstrates a file upload
 * [entites](api/entities.rb): an example of using [grape-entity](https://github.com/intridea/grape-entity)
 
+See
+---
+
+There's a deployed [grape-on-rack on Heroku](http://grape-on-rack.herokuapp.com/).
+
 Run
 ---
 
@@ -65,7 +70,7 @@ rake routes
 Explore the API
 ---------------
 
-Explore the API using [Swagger UI](http://petstore.swagger.wordnik.com). Run the application and point the explorer to `http://localhost:9292/api/swagger_doc`.
+Explore the API using [Swagger UI](http://petstore.swagger.wordnik.com). Run the application and point the explorer to `http://localhost:9292/api/swagger_doc` or `http://grape-on-rack.herokuapp.com/api/swagger_doc`.
 
 New Relic
 ---------
