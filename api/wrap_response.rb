@@ -1,13 +1,13 @@
 require 'wrap_response_decorator'
 
 module Acme
-  class Wrap_Response < Grape::API
-    use Wrap_Response_Decorator
+  class WrapResponse < Grape::API
+    use WrapResponseDecorator
     format :json
     namespace :decorated do
       desc "Returns pong."
       get :ping do
-        { :ping => "pong" }
+        { ping: "pong" }
       end
     end
   end

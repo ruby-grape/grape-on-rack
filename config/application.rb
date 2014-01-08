@@ -12,4 +12,3 @@ end
 
 require 'api'
 require 'acme_app'
-

@@ -1,12 +1,11 @@
 module Acme
-  class Post_Json < Grape::API
+  class PostJson < Grape::API
     format :json
     desc "Creates a spline that can be reticulated."
     resource :spline do
       post do
-        { :reticulated => params[:reticulated] }
+        { reticulated: params[:reticulated] }
       end
     end
   end
 end
-

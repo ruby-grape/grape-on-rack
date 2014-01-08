@@ -19,8 +19,6 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/api/*_spec.rb']
 end
 
-task :default => :spec
-
 task :environment do
   ENV["RACK_ENV"] ||= 'development'
   require File.expand_path("../config/environment", __FILE__)
@@ -31,3 +29,8 @@ task :routes => :environment do
     p route
   end
 end
+
+require 'rubocop/rake_task'
+Rubocop::RakeTask.new(:rubocop)
+
+task default: [:rubocop, :spec]

@@ -1,20 +1,23 @@
 module Acme
-  class Post_Put < Grape::API
-    @@rang = 0
+  class PostPut < Grape::API
+    class << self
+      attr_accessor :rang
+    end
     format :json
     desc "Returns pong."
     get :ring do
-      { :rang => @@rang }
+      { rang: PostPut.rang }
     end
     post :ring do
-      @@rang += 1
-      { :rang => @@rang }
+      result = (PostPut.rang += 1)
+      { rang: result }
     end
     put :ring do
       error!("missing :count", 400) unless params[:count]
-      @@rang += params[:count].to_i
-      { :rang => @@rang }
+      result = (PostPut.rang += params[:count].to_i)
+      { rang: result }
     end
   end
 end
 
+Acme::PostPut.rang = 0

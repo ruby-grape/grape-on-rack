@@ -14,4 +14,3 @@ describe Acme::API do
   end
 
 end
-

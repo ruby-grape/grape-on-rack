@@ -3,16 +3,15 @@ module Acme
     prefix 'api'
     format :json
     mount ::Acme::Ping
-    mount ::Acme::Rescue_From
-    mount ::Acme::Path_Versioning
-    mount ::Acme::Header_Versioning
-    mount ::Acme::Post_Put
-    mount ::Acme::Wrap_Response
-    mount ::Acme::Post_Json
-    mount ::Acme::Content_Type
-    mount ::Acme::Upload_File
+    mount ::Acme::RescueFrom
+    mount ::Acme::PathVersioning
+    mount ::Acme::HeaderVersioning
+    mount ::Acme::PostPut
+    mount ::Acme::WrapResponse
+    mount ::Acme::PostJson
+    mount ::Acme::ContentType
+    mount ::Acme::UploadFile
     mount ::Acme::Entities::API
     add_swagger_documentation api_version: 'v1'
   end
 end
-

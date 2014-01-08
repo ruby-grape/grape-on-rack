@@ -13,4 +13,3 @@ describe Acme::API do
     JSON.parse(last_response.body).should == { "body" => { "ping" => "pong" }, "status" => 200 }
   end
 end
-

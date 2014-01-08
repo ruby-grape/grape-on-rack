@@ -1,5 +1,5 @@
 module Acme
-  class Upload_File < Grape::API
+  class UploadFile < Grape::API
     format :json
     desc "Upload an image."
     post "avatar" do

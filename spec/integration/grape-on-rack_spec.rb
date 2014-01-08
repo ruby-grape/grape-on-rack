@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Grape on RACK", :js => true, :type => :feature do
+describe "Grape on RACK", js: true, type: :feature do
   context "homepage" do
     it "displays index.html page" do
       visit "/"
@@ -8,7 +8,7 @@ describe "Grape on RACK", :js => true, :type => :feature do
     end
     context "ring" do
       before :each do
-        @rang = Acme::Post_Put.send(:class_variable_get, :@@rang)
+        @rang = Acme::PostPut.rang
         visit "/"
       end
       it "increments the ring counter" do
@@ -47,4 +47,3 @@ describe "Grape on RACK", :js => true, :type => :feature do
     end
   end
 end
-

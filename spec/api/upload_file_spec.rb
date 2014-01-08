@@ -9,7 +9,7 @@ describe Acme::API do
 
   it "uploads a file" do
     image_filename = "spec/fixtures/grape_logo.png"
-    post "/api/avatar", :image_file => Rack::Test::UploadedFile.new(image_filename, 'image/png')
+    post "/api/avatar", image_file: Rack::Test::UploadedFile.new(image_filename, 'image/png')
     last_response.status.should == 201
     last_response.body.should == {
       "filename" => "grape_logo.png",
@@ -18,4 +18,3 @@ describe Acme::API do
   end
 
 end
-
