@@ -3,9 +3,9 @@ module Acme
     class Tool < Grape::Entity
       root "tools", "tool"
       expose :id
-      expose :length
-      expose :weight
-      expose :foo, if: lambda { |tool, options| options[:foo] } do |tool, options|
+      expose :length, documentation: { type: String, desc: "length of the tool" }
+      expose :weight, documentation: { type: String, desc: "weight of the tool" }
+      expose :foo, documentation: { type: String, desc: "foo" }, if: lambda { |tool, options| options[:foo] } do |tool, options|
         # p options[:env].keys
         options[:foo]
       end
@@ -19,6 +19,7 @@ module Acme
       }
       desc "Exposes an entity"
       namespace :entities do
+        desc "Expose a tool", params: Acme::Entities::Tool.documentation
         get ':id' do
           present OpenStruct.new(id: params[:id], length: 10, weight: "20kg"), with: Acme::Entities::Tool, foo: params[:foo]
         end
