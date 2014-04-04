@@ -25,10 +25,17 @@ describe Acme::API do
       get "/api/ring"
       last_response.body.should == { rang: @rang + 2 }.to_json
     end
-    it "PUT ring" do
-      put "/api/ring?count=2"
-      last_response.status.should == 200
-      last_response.body.should == { rang: @rang + 2 }.to_json
+    context "PUT ring" do
+      it "succeeds for 2 rings" do
+        put "/api/ring?count=2"
+        last_response.status.should == 200
+        last_response.body.should == { rang: @rang + 2 }.to_json
+      end
+      it "fails with a missing ring" do
+        put "/api/ring"
+        last_response.status.should == 400
+        last_response.body.should == { error: 'count is missing' }.to_json
+      end
     end
   end
 end

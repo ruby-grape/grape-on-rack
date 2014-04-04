@@ -12,8 +12,10 @@ module Acme
       result = (PostPut.rang += 1)
       { rang: result }
     end
+    params do
+      requires :count, type: Integer
+    end
     put :ring do
-      error!("missing :count", 400) unless params[:count]
       result = (PostPut.rang += params[:count].to_i)
       { rang: result }
     end
