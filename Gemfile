@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rack', '~> 1.4.1'
-gem 'grape', '~> 0.7.0'
+gem 'grape', github: 'intridea/grape'
 gem 'grape-entity', '~> 0.4.2'
 gem 'json', '~> 1.7.7'
 gem 'newrelic_rpm', '~> 3.5.4.34'
@@ -10,6 +10,7 @@ gem 'rack-cors', '~> 0.2.8'
 gem 'grape-swagger', '~> 0.6.0'
 gem 'nokogiri', '~> 1.6.1'
 gem 'zip', '~> 2.0.2'
+gem 'mime-types'
 
 group :development do
   gem 'rake', '~> 10.0.3'

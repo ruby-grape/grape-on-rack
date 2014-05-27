@@ -13,7 +13,7 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * [header_versioning](api/header_versioning.rb): an example that uses vendor header-based versioning
 * [wrap_response](api/wrap_response.rb): a middleware that wraps all responses and always returns HTTP code 200
 * [content_type](api/content_type.rb): an example that overrides the default `Content-Type`
-* [upload_file](api/upload_file.rb): an example that demonstrates a file upload
+* [upload_file](api/upload_file.rb): an example that demonstrates a file upload and download
 * [entites](api/entities.rb): an example of using [grape-entity](https://github.com/intridea/grape-entity)
 
 See
@@ -58,6 +58,13 @@ A red brown fox jumped over the road.
 $ curl -X POST -i -F image_file=@spec/fixtures/grape_logo.png http://localhost:9292/api/avatar
 
 {"filename":"grape_logo.png","size":4272}
+```
+
+### Upload and Download a File
+
+```
+$ curl -X POST -i -F file=@spec/fixtures/grape_logo.png http://localhost:9292/api/download.png
+$ curl -X POST -i -F file=@api/ping.rb http://localhost:9292/api/download.rb
 ```
 
 List Routes
