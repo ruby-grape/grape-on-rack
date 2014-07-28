@@ -24,13 +24,13 @@ task :environment do
   require File.expand_path("../config/environment", __FILE__)
 end
 
-task :routes => :environment do
+task routes: :environment do
   Acme::API.routes.each do |route|
     p route
   end
 end
 
 require 'rubocop/rake_task'
-Rubocop::RakeTask.new(:rubocop)
+RuboCop::RakeTask.new(:rubocop)
 
 task default: [:rubocop, :spec]

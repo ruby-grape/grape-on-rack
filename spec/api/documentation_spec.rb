@@ -16,13 +16,21 @@ describe Acme::API do
 
     it "exposes api version" do
       @json["apiVersion"].should == "v1"
-      @json["apis"].size.should == 1
+      @json["apis"].size.should == 10
     end
   end
 
   context "swagger documentation api" do
     before do
-      get "/api/swagger_doc/api"
+      get "/api/swagger_doc"
+      last_response.status.should == 200
+      @apis = JSON.parse(last_response.body)["apis"]
+    end
+  end
+
+  context "swagger entity documentation api" do
+    before do
+      get "/api/swagger_doc/entities"
       last_response.status.should == 200
       @apis = JSON.parse(last_response.body)["apis"]
     end

@@ -5,7 +5,7 @@ module Acme
       expose :id
       expose :length, documentation: { type: String, desc: "length of the tool" }
       expose :weight, documentation: { type: String, desc: "weight of the tool" }
-      expose :foo, documentation: { type: String, desc: "foo" }, if: lambda { |tool, options| options[:foo] } do |tool, options|
+      expose :foo, documentation: { type: String, desc: "foo" }, if: lambda { |_tool, options| options[:foo] } do |_tool, options|
         # p options[:env].keys
         options[:foo]
       end

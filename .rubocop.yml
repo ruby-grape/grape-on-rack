@@ -24,11 +24,6 @@ Encoding:
   # no need to always specify encoding
   Enabled: false
 
-HashMethods:
-  # key? instead of has_key?
-  # value? instead of has_value?
-  Enabled: false
-
 StringLiterals:
   # use single or double-quoted strings, as you please
   Enabled: false
