@@ -7,32 +7,32 @@ describe Acme::API do
     Acme::API
   end
 
-  it "GET ring" do
-    get "/api/ring"
+  it 'GET ring' do
+    get '/api/ring'
     JSON.parse(last_response.body)[:rang].to_i.should >= 0
   end
-  context "with rings" do
+  context 'with rings' do
     before :each do
-      get "/api/ring"
-      @rang = JSON.parse(last_response.body)["rang"].to_i
+      get '/api/ring'
+      @rang = JSON.parse(last_response.body)['rang'].to_i
     end
-    it "POST ring" do
+    it 'POST ring' do
       2.times do |i|
-        post "/api/ring"
+        post '/api/ring'
         last_response.status.should == 201
         last_response.body.should == { rang: @rang + i + 1 }.to_json
       end
-      get "/api/ring"
+      get '/api/ring'
       last_response.body.should == { rang: @rang + 2 }.to_json
     end
-    context "PUT ring" do
-      it "succeeds for 2 rings" do
-        put "/api/ring?count=2"
+    context 'PUT ring' do
+      it 'succeeds for 2 rings' do
+        put '/api/ring?count=2'
         last_response.status.should == 200
         last_response.body.should == { rang: @rang + 2 }.to_json
       end
-      it "fails with a missing ring" do
-        put "/api/ring"
+      it 'fails with a missing ring' do
+        put '/api/ring'
         last_response.status.should == 400
         last_response.body.should == { error: 'count is missing' }.to_json
       end

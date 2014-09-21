@@ -1,9 +1,9 @@
 module Acme
   class HeaderVersioning < Grape::API
     version 'v1', using: :header, vendor: 'acme', format: :json, strict: true
-    desc "Returns acme."
+    desc 'Returns acme.'
     get do
-      { header: "acme" }
+      { header: 'acme' }
     end
   end
 end

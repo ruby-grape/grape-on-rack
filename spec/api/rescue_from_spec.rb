@@ -7,10 +7,10 @@ describe Acme::API do
     Acme::API
   end
 
-  it "rescues all exceptions" do
-    get "/api/raise"
+  it 'rescues all exceptions' do
+    get '/api/raise'
     last_response.status.should == 500
-    last_response.body.should == "Unexpected error."
+    last_response.body.should == 'Unexpected error.'
   end
 
 end

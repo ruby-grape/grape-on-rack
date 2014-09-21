@@ -5,9 +5,9 @@ module Acme
     use WrapResponseDecorator
     format :json
     namespace :decorated do
-      desc "Returns pong."
+      desc 'Returns pong.'
       get :ping do
-        { ping: "pong" }
+        { ping: 'pong' }
       end
     end
   end

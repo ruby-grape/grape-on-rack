@@ -2,7 +2,7 @@ module Acme
   class Ping < Grape::API
     format :json
     get '/ping' do
-      { ping: "pong" }
+      { ping: 'pong' }
     end
   end
 end

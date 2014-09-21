@@ -17,7 +17,7 @@ group :development do
   gem 'guard', '~> 1.6.1'
   gem 'guard-bundler', '~> 1.0.0'
   gem 'guard-rack', '~> 1.2.2'
-  gem 'rubocop', '0.24.1'
+  gem 'rubocop', '0.26.1'
 end
 
 group :test do

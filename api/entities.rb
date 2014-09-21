@@ -1,11 +1,11 @@
 module Acme
   module Entities
     class Tool < Grape::Entity
-      root "tools", "tool"
+      root 'tools', 'tool'
       expose :id
-      expose :length, documentation: { type: String, desc: "length of the tool" }
-      expose :weight, documentation: { type: String, desc: "weight of the tool" }
-      expose :foo, documentation: { type: String, desc: "foo" }, if: lambda { |_tool, options| options[:foo] } do |_tool, options|
+      expose :length, documentation: { type: String, desc: 'length of the tool' }
+      expose :weight, documentation: { type: String, desc: 'weight of the tool' }
+      expose :foo, documentation: { type: String, desc: 'foo' }, if: lambda { |_tool, options| options[:foo] } do |_tool, options|
         # p options[:env].keys
         options[:foo]
       end
@@ -17,11 +17,11 @@ module Acme
       formatter :xml, proc { |object|
         object[object.keys.first].to_xml root: object.keys.first
       }
-      desc "Exposes an entity"
+      desc 'Exposes an entity'
       namespace :entities do
-        desc "Expose a tool", params: Acme::Entities::Tool.documentation
+        desc 'Expose a tool', params: Acme::Entities::Tool.documentation
         get ':id' do
-          present OpenStruct.new(id: params[:id], length: 10, weight: "20kg"), with: Acme::Entities::Tool, foo: params[:foo]
+          present OpenStruct.new(id: params[:id], length: 10, weight: '20kg'), with: Acme::Entities::Tool, foo: params[:foo]
         end
       end
     end

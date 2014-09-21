@@ -4,7 +4,7 @@ module Acme
       attr_accessor :rang
     end
     format :json
-    desc "Returns pong."
+    desc 'Returns pong.'
     get :ring do
       { rang: PostPut.rang }
     end
