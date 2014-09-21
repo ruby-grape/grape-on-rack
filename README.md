@@ -12,7 +12,7 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * [path_versioning](api/path_versioning.rb): an example that uses path-based versioning
 * [header_versioning](api/header_versioning.rb): an example that uses vendor header-based versioning
 * [wrap_response](api/wrap_response.rb): a middleware that wraps all responses and always returns HTTP code 200
-* [content_type](api/content_type.rb): an example that overrides the default `Content-Type`
+* [content_type](api/content_type.rb): an example that overrides the default `Content-Type` or returns data in both JSON and XML formats
 * [upload_file](api/upload_file.rb): an example that demonstrates a file upload and download
 * [entites](api/entities.rb): an example of using [grape-entity](https://github.com/intridea/grape-entity)
 
