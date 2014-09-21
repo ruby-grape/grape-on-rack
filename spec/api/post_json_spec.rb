@@ -10,8 +10,8 @@ describe Acme::API do
   [true, false].each do |reticulated|
     it "POST #{reticulated ? 'reticulated' : 'unreticulated' } spline" do
       post '/api/spline', 'reticulated' => reticulated
-      last_response.status.should == 201
-      JSON.parse(last_response.body).should == { 'reticulated' => reticulated.to_s }
+      expect(last_response.status).to eq(201)
+      expect(JSON.parse(last_response.body)).to eq('reticulated' => reticulated.to_s)
     end
   end
 

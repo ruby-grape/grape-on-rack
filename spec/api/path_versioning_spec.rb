@@ -9,7 +9,7 @@ describe Acme::API do
 
   it 'vendored path' do
     get '/api/vendor'
-    last_response.body.should == { path: 'acme' }.to_json
+    expect(last_response.body).to eq({ path: 'acme' }.to_json)
   end
 
 end

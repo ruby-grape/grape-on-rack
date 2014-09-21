@@ -9,8 +9,8 @@ describe Acme::API do
 
   it 'rescues all exceptions' do
     get '/api/raise'
-    last_response.status.should == 500
-    last_response.body.should == 'Unexpected error.'
+    expect(last_response.status).to eq(500)
+    expect(last_response.body).to eq('Unexpected error.')
   end
 
 end

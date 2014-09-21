@@ -10,12 +10,12 @@ describe Acme::API do
   context 'header based versioning' do
     it 'vendored header' do
       get '/api', nil,  'HTTP_ACCEPT' => 'application/vnd.acme-v1+json'
-      last_response.status.should == 200
-      last_response.body.should == { header: 'acme' }.to_json
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq({ header: 'acme' }.to_json)
     end
     it 'invalid version' do
       get '/api', nil,  'HTTP_ACCEPT' => 'application/vnd.acme-v2+json'
-      last_response.status.should == 404
+      expect(last_response.status).to eq(404)
     end
   end
 

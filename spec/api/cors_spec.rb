@@ -14,19 +14,19 @@ describe Acme::API do
               'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'Origin, Accept, Content-Type',
               'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'GET'
 
-      last_response.status.should == 200
-      last_response.headers['Access-Control-Allow-Origin'].should == 'http://cors.example.com'
-      last_response.headers['Access-Control-Expose-Headers'].should == ''
+      expect(last_response.status).to eq(200)
+      expect(last_response.headers['Access-Control-Allow-Origin']).to eq('http://cors.example.com')
+      expect(last_response.headers['Access-Control-Expose-Headers']).to eq('')
     end
     it 'includes Access-Control-Allow-Origin in the response' do
       get '/api/ping', {}, 'HTTP_ORIGIN' => 'http://cors.example.com'
-      last_response.status.should == 200
-      last_response.headers['Access-Control-Allow-Origin'].should == 'http://cors.example.com'
+      expect(last_response.status).to eq(200)
+      expect(last_response.headers['Access-Control-Allow-Origin']).to eq('http://cors.example.com')
     end
     it 'includes Access-Control-Allow-Origin in errors' do
       get '/invalid', {}, 'HTTP_ORIGIN' => 'http://cors.example.com'
-      last_response.status.should == 404
-      last_response.headers['Access-Control-Allow-Origin'].should == 'http://cors.example.com'
+      expect(last_response.status).to eq(404)
+      expect(last_response.headers['Access-Control-Allow-Origin']).to eq('http://cors.example.com')
     end
   end
 

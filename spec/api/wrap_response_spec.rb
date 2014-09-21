@@ -9,7 +9,7 @@ describe Acme::API do
 
   it 'wraps body' do
     get '/api/decorated/ping'
-    last_response.status.should == 200
-    JSON.parse(last_response.body).should == { 'body' => { 'ping' => 'pong' }, 'status' => 200 }
+    expect(last_response.status).to eq(200)
+    expect(JSON.parse(last_response.body)).to eq('body' => { 'ping' => 'pong' }, 'status' => 200)
   end
 end

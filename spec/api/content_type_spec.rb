@@ -10,32 +10,32 @@ describe Acme::API do
   context 'plain_text' do
     it 'returns plain text' do
       get '/api/plain_text'
-      last_response.status.should == 200
-      last_response.headers['Content-Type'].should == 'text/plain'
-      last_response.body.should == 'A red brown fox jumped over the road.'
+      expect(last_response.status).to eq(200)
+      expect(last_response.headers['Content-Type']).to eq('text/plain')
+      expect(last_response.body).to eq('A red brown fox jumped over the road.')
     end
   end
 
   context 'mixed' do
     it 'returns json' do
       get '/api/mixed.json'
-      last_response.status.should == 200
-      last_response.headers['Content-Type'].should == 'application/json'
-      last_response.body.should == { data: 'A red brown fox jumped over the road.' }.to_json
+      expect(last_response.status).to eq(200)
+      expect(last_response.headers['Content-Type']).to eq('application/json')
+      expect(last_response.body).to eq({ data: 'A red brown fox jumped over the road.' }.to_json)
     end
 
     it 'returns xml' do
       get '/api/mixed.xml'
-      last_response.status.should == 200
-      last_response.headers['Content-Type'].should == 'application/xml'
-      last_response.body.should == { data: 'A red brown fox jumped over the road.' }.to_xml
+      expect(last_response.status).to eq(200)
+      expect(last_response.headers['Content-Type']).to eq('application/xml')
+      expect(last_response.body).to eq({ data: 'A red brown fox jumped over the road.' }.to_xml)
     end
 
     it 'returns text' do
       get '/api/mixed.txt'
-      last_response.status.should == 200
-      last_response.headers['Content-Type'].should == 'text/plain'
-      last_response.body.should == { data: 'A red brown fox jumped over the road.' }.to_s
+      expect(last_response.status).to eq(200)
+      expect(last_response.headers['Content-Type']).to eq('text/plain')
+      expect(last_response.body).to eq({ data: 'A red brown fox jumped over the road.' }.to_s)
     end
   end
 end
