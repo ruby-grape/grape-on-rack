@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'ostats_helper'
 
 ENV['RACK_ENV'] ||= 'test'
 
