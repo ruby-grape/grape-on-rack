@@ -8,7 +8,8 @@ describe Acme::API do
   end
 
   before(:all) do
-    @stats = OStats.new filters: ['Grape'], suppress_nodelta: true
+    @stats = OStats.new filters: ['Grape'], suppress_nodelta: true,
+      trace_allocations: true
     @stats.collect!
   end
 
