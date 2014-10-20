@@ -21,9 +21,9 @@ class OStats
     @stats[-1].sort {|(k1,v1),(k2,v2)| v2 <=> v1}.each do |k,v|
       delta = ((v - @stats[-2][k]) unless @stats[-2].nil?) || 0
       if !@suppress_nodelta or delta != 0
-        printf "%-60s %10d", k, v
+        printf "%-50s %6d", k, v
         if !@suppress_nodelta or delta != 0
-          printf " delta %10d", delta
+          printf " delta %6d", delta
         end
         puts
       end
