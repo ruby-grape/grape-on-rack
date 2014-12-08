@@ -47,7 +47,7 @@ $ curl http://localhost:9292/api/ping
 ### Get Plain Text
 
 ```
-$ curl http://localhost:9292/api/data
+$ curl http://localhost:9292/api/plain_text
 
 A red brown fox jumped over the road.
 ```
