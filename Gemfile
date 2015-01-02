@@ -25,3 +25,7 @@ group :test do
   gem 'capybara', '~> 2.4.4'
   gem 'selenium-webdriver', '~> 2.44.0'
 end
+
+platform :rbx do
+  gem 'iconv'
+end
