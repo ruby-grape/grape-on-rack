@@ -18,5 +18,4 @@ describe Acme::API do
       expect(last_response.status).to eq(404)
     end
   end
-
 end

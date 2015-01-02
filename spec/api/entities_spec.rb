@@ -45,5 +45,4 @@ describe Acme::API do
 </tool>
 XML
   end
-
 end

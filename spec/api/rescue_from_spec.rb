@@ -12,5 +12,4 @@ describe Acme::API do
     expect(last_response.status).to eq(500)
     expect(last_response.body).to eq('Unexpected error.')
   end
-
 end

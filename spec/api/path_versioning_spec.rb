@@ -11,5 +11,4 @@ describe Acme::API do
     get '/api/vendor'
     expect(last_response.body).to eq({ path: 'acme' }.to_json)
   end
-
 end

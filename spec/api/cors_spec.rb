@@ -29,5 +29,4 @@ describe Acme::API do
       expect(last_response.headers['Access-Control-Allow-Origin']).to eq('http://cors.example.com')
     end
   end
-
 end

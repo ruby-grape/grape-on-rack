@@ -40,7 +40,7 @@ describe 'Grape on RACK', js: true, type: :feature do
   context 'curl' do
     it 'reticulates a spline' do
       visit '/'
-      url = "http://localhost:#{Capybara.server_port}/api/spline"
+      url = "http://#{Capybara.server_host}:#{Capybara.server_port}/api/spline"
       json = '{"reticulated":"false"}'
       rc = `curl -X POST -d '#{json}' #{url} -H 'Accept: application/json' -H 'Content-Type:application/json' -s`
       expect(rc).to eq(json)

@@ -14,5 +14,4 @@ describe Acme::API do
       expect(JSON.parse(last_response.body)).to eq('reticulated' => reticulated.to_s)
     end
   end
-
 end
