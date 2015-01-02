@@ -27,5 +27,6 @@ group :test do
 end
 
 platform :rbx do
+  gem 'racc'
   gem 'iconv'
 end
