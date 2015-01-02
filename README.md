@@ -1,7 +1,9 @@
 Grape API on Rack
 =================
 
-[![Build Status](https://secure.travis-ci.org/dblock/grape-on-rack.png)](http://travis-ci.org/dblock/grape-on-rack)
+[![Build Status](http://img.shields.io/travis/dblock/grape-on-rack.svg)](https://travis-ci.org/dblock/grape-on-rack)
+[![Dependency Status](https://gemnasium.com/dblock/grape-on-rack.svg)](https://gemnasium.com/dblock/grape-on-rack)
+[![Code Climate](https://codeclimate.com/github/dblock/grape-on-rack.svg)](https://codeclimate.com/github/dblock/grape-on-rack)
 
 A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 
