@@ -10,6 +10,8 @@ gem 'rack-cors', '~> 0.2.8'
 gem 'grape-swagger', '~> 0.9.0'
 gem 'mime-types'
 gem 'nokogiri', '1.6.3.1'
+gem 'pry'
+gem 'pry-byebug'
 
 group :development do
   gem 'rake', '~> 10.0.3'
