@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rack', '~> 1.6.0'
-gem 'grape', '~> 0.10.1'
+# gem 'grape', '~> 0.10.1'
+gem 'grape', path: '/Users/cdan/work/dan-corneanu/grape'
 gem 'grape-entity', '~> 0.4.4'
 gem 'json', '~> 1.7.7'
 gem 'newrelic_rpm', '~> 3.5.4.34'
