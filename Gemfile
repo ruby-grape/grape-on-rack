@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rack', '~> 1.6.0'
-gem 'grape', '~> 0.10.1'
+# gem 'grape', '~> 0.10.1'
+gem 'grape', path: '/Users/cdan/work/dan-corneanu/grape'
 gem 'grape-entity', '~> 0.4.4'
 gem 'json', '~> 1.7.7'
 gem 'newrelic_rpm', '~> 3.5.4.34'
@@ -10,6 +11,8 @@ gem 'rack-cors', '~> 0.2.8'
 gem 'grape-swagger', '~> 0.9.0'
 gem 'mime-types'
 gem 'nokogiri', '1.6.3.1'
+gem 'pry'
+gem 'pry-byebug'
 
 group :development do
   gem 'rake', '~> 10.0.3'
