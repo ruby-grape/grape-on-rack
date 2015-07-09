@@ -6,7 +6,7 @@ module Acme
         lambda { [404, {}, []] },
         root: File.expand_path('../../public', __FILE__),
         urls: ['/']
-        )
+      )
     end
 
     def self.instance
