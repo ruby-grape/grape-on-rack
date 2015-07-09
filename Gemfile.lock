@@ -88,9 +88,6 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     nenv (0.2.0)
-    newrelic-grape (2.0.0)
-      grape
-      newrelic_rpm
     newrelic_rpm (3.5.4.34)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -173,7 +170,6 @@ DEPENDENCIES
   iconv
   json (~> 1.8.3)
   mime-types
-  newrelic-grape (~> 2.0.0)
   newrelic_rpm (~> 3.5.4.34)
   nokogiri (= 1.6.3.1)
   racc
