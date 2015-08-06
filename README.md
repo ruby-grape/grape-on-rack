@@ -1,7 +1,7 @@
 Grape API on Rack
 =================
 
-[![Build Status](http://img.shields.io/travis/ruby-grape/grape-on-rack.svg)](https://travis-ci.org/ruby-grape/grape-on-rack)
+[![Build Status](https://travis-ci.org/ruby-grape/grape-on-rack.svg?branch=master)](https://travis-ci.org/ruby-grape/grape-on-rack)
 [![Dependency Status](https://gemnasium.com/ruby-grape/grape-on-rack.svg)](https://gemnasium.com/ruby-grape/grape-on-rack)
 [![Code Climate](https://codeclimate.com/github/ruby-grape/grape-on-rack.svg)](https://codeclimate.com/github/ruby-grape/grape-on-rack)
 
