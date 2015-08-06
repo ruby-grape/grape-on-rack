@@ -15,14 +15,14 @@ group :development do
   gem 'guard', '~> 2.10.5'
   gem 'guard-bundler', '~> 2.1.0'
   gem 'guard-rack', '~> 2.0.0'
-  gem 'rubocop', '0.32.1'
+  gem 'rubocop', '0.33.0'
 end
 
 group :test do
   gem 'rspec', '~> 3.1'
   gem 'rack-test', '~> 0.6.2'
   gem 'capybara', '~> 2.4.4'
-  gem 'selenium-webdriver', '~> 2.44.0'
+  gem 'selenium-webdriver', '~> 2.47.1'
 end
 
 platform :rbx do

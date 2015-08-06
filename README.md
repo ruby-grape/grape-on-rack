@@ -1,11 +1,11 @@
 Grape API on Rack
 =================
 
-[![Build Status](http://img.shields.io/travis/dblock/grape-on-rack.svg)](https://travis-ci.org/dblock/grape-on-rack)
-[![Dependency Status](https://gemnasium.com/dblock/grape-on-rack.svg)](https://gemnasium.com/dblock/grape-on-rack)
-[![Code Climate](https://codeclimate.com/github/dblock/grape-on-rack.svg)](https://codeclimate.com/github/dblock/grape-on-rack)
+[![Build Status](http://img.shields.io/travis/ruby-grape/grape-on-rack.svg)](https://travis-ci.org/ruby-grape/grape-on-rack)
+[![Dependency Status](https://gemnasium.com/ruby-grape/grape-on-rack.svg)](https://gemnasium.com/ruby-grape/grape-on-rack)
+[![Code Climate](https://codeclimate.com/github/ruby-grape/grape-on-rack.svg)](https://codeclimate.com/github/ruby-grape/grape-on-rack)
 
-A [Grape](http://github.com/intridea/grape) API mounted on Rack.
+A [Grape](http://github.com/ruby-grape/grape) API mounted on Rack.
 
 * [ping](api/ping.rb): a hello world example that returns a JSON document
 * [post_put](api/post_put.rb): a simple `POST` and `PUT` example
@@ -16,7 +16,7 @@ A [Grape](http://github.com/intridea/grape) API mounted on Rack.
 * [wrap_response](api/wrap_response.rb): a middleware that wraps all responses and always returns HTTP code 200
 * [content_type](api/content_type.rb): an example that overrides the default `Content-Type` or returns data in both JSON and XML formats
 * [upload_file](api/upload_file.rb): an example that demonstrates a file upload and download
-* [entites](api/entities.rb): an example of using [grape-entity](https://github.com/intridea/grape-entity)
+* [entites](api/entities.rb): an example of using [grape-entity](https://github.com/ruby-grape/grape-entity)
 
 See
 ---
