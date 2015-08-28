@@ -9,6 +9,7 @@ module Acme
     mount ::Acme::PostPut
     mount ::Acme::WrapResponse
     mount ::Acme::PostJson
+    mount ::Acme::GetJson
     mount ::Acme::ContentType
     mount ::Acme::UploadFile
     mount ::Acme::Entities::API
