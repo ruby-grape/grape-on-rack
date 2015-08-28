@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rack', '~> 1.6.0'
-gem 'grape', '~> 0.12.0'
-gem 'grape-entity', '~> 0.4.5'
+gem 'grape', '~> 0.13.0'
+gem 'grape-entity', '~> 0.4.8'
 gem 'json', '~> 1.8.3'
 gem 'newrelic_rpm', '~> 3.5.4.34'
 gem 'rack-cors', '~> 0.4.0'
