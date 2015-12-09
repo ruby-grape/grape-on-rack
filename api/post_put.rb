@@ -1,8 +1,7 @@
 module Acme
   class PostPut < Grape::API
-    class << self
-      attr_accessor :rang
-    end
+    cattr_accessor :rang
+
     format :json
     desc 'Returns pong.'
     get :ring do

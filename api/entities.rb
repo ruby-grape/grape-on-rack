@@ -6,7 +6,6 @@ module Acme
       expose :length, documentation: { type: :string, desc: 'length of the tool' }
       expose :weight, documentation: { type: :string, desc: 'weight of the tool' }
       expose :foo, documentation: { type: :string, desc: 'foo' }, if: ->(_tool, options) { options[:foo] } do |_tool, options|
-        # p options[:env].keys
         options[:foo]
       end
     end
