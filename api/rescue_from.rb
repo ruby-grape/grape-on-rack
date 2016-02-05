@@ -5,7 +5,7 @@ module Acme
     end
     desc 'Raises an exception.'
     get :raise do
-      fail 'Unexpected error.'
+      raise 'Unexpected error.'
     end
   end
 end
