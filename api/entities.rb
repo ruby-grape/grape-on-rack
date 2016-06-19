@@ -18,7 +18,9 @@ module Acme
       }
       desc 'Exposes an entity'
       namespace :entities do
-        desc 'Expose a tool', params: Acme::Entities::Tool.documentation
+        desc  'Expose a tool',
+              params: Acme::Entities::Tool.documentation,
+              success: Acme::Entities::Tool
         get ':id' do
           present OpenStruct.new(id: params[:id], length: 10, weight: '20kg'), with: Acme::Entities::Tool, foo: params[:foo]
         end

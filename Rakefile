@@ -15,8 +15,8 @@ end
 
 task routes: :environment do
   Acme::API.routes.each do |route|
-    method = route.route_method.ljust(10)
-    path = route.route_path
+    method = route.request_method.ljust(10)
+    path = route.origin
     puts "     #{method} #{path}"
   end
 end
