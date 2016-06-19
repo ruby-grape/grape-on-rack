@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3.1'
 
-gem 'grape'
+gem 'grape', '~> 0.16'
 gem 'grape-entity'
+gem 'grape-swagger'
+gem 'grape-swagger-entity'
 gem 'json'
 gem 'newrelic_rpm'
 gem 'rack-cors'
-gem 'grape-swagger'
 gem 'mime-types'
 gem 'nokogiri'
 
