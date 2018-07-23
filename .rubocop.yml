@@ -1,2 +1,18 @@
-inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+    - vendor/**/*
 
+Metrics:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 256
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+inherit_from: .rubocop_todo.yml

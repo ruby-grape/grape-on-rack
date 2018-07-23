@@ -4,7 +4,7 @@ ENV['RACK_ENV'] ||= 'test'
 
 require 'rack/test'
 
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
 RSpec.configure do |config|
   config.color = true
@@ -19,4 +19,5 @@ require 'capybara/rspec'
 Capybara.configure do |config|
   config.app = Acme::App.new
   config.server_port = 9293
+  config.server = :webrick
 end
