@@ -35,14 +35,14 @@ describe Acme::API do
   it 'uses a custom formatter to reset xml root' do
     get '/api/entities/123.xml?foo=bar'
     expect(last_response.status).to eq(200)
-    expect(last_response.body).to eq <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-<tool>
-  <id>123</id>
-  <length type="integer">10</length>
-  <weight>20kg</weight>
-  <foo>bar</foo>
-</tool>
-XML
+    expect(last_response.body).to eq <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <tool>
+        <id>123</id>
+        <length type="integer">10</length>
+        <weight>20kg</weight>
+        <foo>bar</foo>
+      </tool>
+    XML
   end
 end
