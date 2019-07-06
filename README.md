@@ -17,6 +17,7 @@ A [Grape](http://github.com/ruby-grape/grape) API mounted on Rack.
 * [content_type](api/content_type.rb): an example that overrides the default `Content-Type` or returns data in both JSON and XML formats
 * [upload_file](api/upload_file.rb): an example that demonstrates a file upload and download
 * [entites](api/entities.rb): an example of using [grape-entity](https://github.com/ruby-grape/grape-entity)
+* [headers](api/headers.rb): demonstrates header case-sensitive handling
 
 See
 ---
