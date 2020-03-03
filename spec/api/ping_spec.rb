@@ -7,6 +7,17 @@ describe Acme::API do
     Acme::API
   end
 
+  before(:all) do
+    @stats = OStats.new filters: ['Grape'], suppress_nodelta: true,
+      trace_allocations: true
+    @stats.collect!
+  end
+
+  after(:all) do
+    @stats.collect!
+    @stats.display
+  end
+
   it 'ping' do
     get '/api/ping'
     expect(last_response.status).to eq(200)
