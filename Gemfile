@@ -18,6 +18,8 @@ group :development do
   gem 'guard-rack'
   gem 'rake'
   gem 'rubocop'
+  gem 'rubocop-rake'
+  gem 'rubocop-rspec'
 end
 
 group :test do
