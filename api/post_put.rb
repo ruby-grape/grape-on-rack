@@ -12,7 +12,7 @@ module Acme
       { rang: result }
     end
     params do
-      requires :count, type: Integer
+      requires :count, type: Integer, documentation: { param_type: 'body' }
     end
     put :ring do
       result = (PostPut.rang += params[:count].to_i)
