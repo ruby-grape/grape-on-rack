@@ -80,7 +80,7 @@ rake routes
 Explore the API
 ---------------
 
-Explore the API using [Swagger UI](http://petstore.swagger.io). Run the application and point the explorer to `http://localhost:9292/api/swagger_doc` or `http://grape-on-rack.herokuapp.com/api/swagger_doc`.
+Explore the API using [Swagger UI](https://github.com/swagger-api/swagger-ui). Run the application and navigate to [http://locahost:9292/swagger/index.html](http://locahost:9292/swagger/index.html).
 
 New Relic
 ---------
