@@ -29,6 +29,12 @@ describe 'Grape on RACK', js: true, type: :feature do
       expect(title).to eq('Page Not Found')
     end
   end
+  context 'Swagger UI' do
+    it 'displays Swagger UI' do
+      visit '/swagger/index.html'
+      expect(title).to eq('Swagger UI')
+    end
+  end
   context 'exception' do
     before :each do
       visit '/api/raise'
