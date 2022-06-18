@@ -11,7 +11,7 @@ module Acme
       header 'Content-Disposition', "attachment; filename*=UTF-8''#{URI.escape(filename)}"
 
       temp_file = params[:file][:tempfile]
-      body FileStreamer.new temp_file.path
+      stream FileStreamer.new temp_file.path
       nil
     end
   end

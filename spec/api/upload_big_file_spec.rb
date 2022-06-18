@@ -13,8 +13,8 @@ describe Acme::API do
     expect(last_response.status).to eq(201)
     expect(last_response.headers['Content-Type']).to eq('image/png')
     expect(last_response.headers['Content-Disposition']).to eq("attachment; filename*=UTF-8''grape_logo.png")
-    File.open(image_filename, 'rb') do |io|
-      expect(last_response.body).to eq io.read
-    end
+    data = File.read(image_filename, encoding: 'UTF-8')
+    expect(last_response.body.encoding).to eq data.encoding
+    expect(last_response.body).to eq data
   end
 end
