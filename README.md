@@ -1,7 +1,7 @@
 Grape API on Rack
 =================
 
-[![Build Status](https://travis-ci.org/ruby-grape/grape-on-rack.svg?branch=master)](https://travis-ci.org/ruby-grape/grape-on-rack)
+[![Test](https://github.com/grape/grape-on-rack/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/grape/grape-on-rack/actions/workflows/test.yml)
 [![Code Climate](https://codeclimate.com/github/ruby-grape/grape-on-rack.svg)](https://codeclimate.com/github/ruby-grape/grape-on-rack)
 
 A [Grape](http://github.com/ruby-grape/grape) API mounted on Rack.

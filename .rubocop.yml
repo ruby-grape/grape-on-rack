@@ -1,11 +1,12 @@
 AllCops:
+  NewCops: enable
   Exclude:
     - vendor/**/*
 
 Metrics:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 256
   Enabled: false
 

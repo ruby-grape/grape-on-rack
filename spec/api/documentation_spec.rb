@@ -36,18 +36,18 @@ describe Acme::API do
     end
 
     it 'exposes entity documentation' do
-      entity = @apis[:paths][:"/api/entities/{id}"]
+      entity = @apis[:paths][:'/api/entities/{id}']
 
       expect(entity.keys.length).to eql 1
       expect(entity).to include :get
 
-      parameters = Hash[entity[:get][:parameters].map { |parameter| [parameter[:name], parameter[:description]] }]
+      parameters = entity[:get][:parameters].map { |parameter| [parameter[:name], parameter[:description]] }.to_h
       expect(parameters).to eq('id' => nil,
                                'length' => 'length of the tool',
                                'weight' => 'weight of the tool',
                                'foo' => 'foo')
       definitions = @apis[:definitions]
-      expect(definitions).to include :Tool
+      expect(definitions.keys).to include :Acme_Entities_Tool
     end
   end
 end
