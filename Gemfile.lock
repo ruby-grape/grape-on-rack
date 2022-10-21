@@ -98,7 +98,7 @@ GEM
       mustermann (>= 1.0.0)
     nenv (0.3.0)
     newrelic_rpm (8.8.0)
-    nokogiri (1.13.6)
+    nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     notiffany (0.1.3)
