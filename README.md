@@ -229,11 +229,6 @@ $ curl http://localhost:9292/api/headers/Host
 {"Host":"localhost:9292"}
 ```
 
-See Also
---------
-
-There's a deployed [grape-on-rack on Heroku](http://grape-on-rack.herokuapp.com/).
-
 New Relic
 ---------
 
