@@ -1,7 +1,5 @@
 source 'http://rubygems.org'
 
-ruby '3.1.1'
-
 gem 'grape'
 gem 'grape-entity'
 gem 'grape-swagger'
@@ -10,6 +8,7 @@ gem 'json'
 gem 'mime-types'
 gem 'newrelic_rpm'
 gem 'nokogiri'
+gem 'rack', '< 3'
 gem 'rack-cors'
 gem 'webrick'
 
