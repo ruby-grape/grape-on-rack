@@ -18,11 +18,13 @@ describe Acme::API do
       expect(last_response.headers['Access-Control-Allow-Origin']).to eq('*')
       expect(last_response.headers['Access-Control-Expose-Headers']).to eq('')
     end
+
     it 'includes Access-Control-Allow-Origin in the response' do
       get '/api/ping', {}, 'HTTP_ORIGIN' => 'http://cors.example.com'
       expect(last_response.status).to eq(200)
       expect(last_response.headers['Access-Control-Allow-Origin']).to eq('*')
     end
+
     it 'includes Access-Control-Allow-Origin in errors' do
       get '/invalid', {}, 'HTTP_ORIGIN' => 'http://cors.example.com'
       expect(last_response.status).to eq(404)

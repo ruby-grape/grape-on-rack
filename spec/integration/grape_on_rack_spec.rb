@@ -1,48 +1,66 @@
 require 'spec_helper'
 
-describe 'Grape on RACK', js: true, type: :feature do
+describe 'Grape on RACK', :js, type: :feature do
   context 'homepage' do
     it 'displays index.html page' do
       visit '/'
       expect(title).to eq('Rack Powers Web APIs')
     end
+
     context 'ring' do
-      before :each do
+      before do
         @rang = Acme::PostPut.rang
         visit '/'
       end
+
       it 'increments the ring counter' do
-        expect(find('#ring_value')).to have_content "rang #{@rang + 1} time(s)"
-        expect(find('#ring_action')).to have_content 'click here to ring again'
+        expect(find_by_id('ring_value')).to have_content "rang #{@rang + 1} time(s)"
+        expect(find_by_id('ring_action')).to have_content 'click here to ring again'
         3.times do |i|
-          find('#ring_action').click
-          expect(find('#ring_value')).to have_content "rang #{@rang + i + 2} time(s)"
+          find_by_id('ring_action').click
+          expect(find_by_id('ring_value')).to have_content "rang #{@rang + i + 2} time(s)"
         end
       end
     end
+
+    context 'stream' do
+      before do
+        visit '/'
+      end
+
+      it 'fetches stream data incrementally' do
+        expect(find_by_id('stream_value')).to have_content "fetching stream data ...\n1\n1 2\n1 2 3\n1 2 3 4\n1 2 3 4 5"
+      end
+    end
   end
+
   context "page that doesn't exist" do
-    before :each do
+    before do
       visit '/invalid'
     end
+
     it 'displays 404 page' do
       expect(title).to eq('Page Not Found')
     end
   end
+
   context 'Swagger UI' do
     it 'displays Swagger UI' do
       visit '/swagger/index.html'
       expect(title).to eq('Swagger UI')
     end
   end
+
   context 'exception' do
-    before :each do
+    before do
       visit '/api/raise'
     end
+
     it 'displays 500 page' do
       expect(title).to eq('Unexpected Error')
     end
   end
+
   context 'curl' do
     it 'reticulates a spline' do
       visit '/'

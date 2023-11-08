@@ -11,8 +11,7 @@ describe Acme::API do
     get '/api/headers'
     expect(JSON.parse(last_response.body)).to eq(
       'Cookie' => '',
-      'Host' => 'example.org',
-      'Version' => 'HTTP/1.0'
+      'Host' => 'example.org'
     )
   end
 
@@ -39,8 +38,7 @@ describe Acme::API do
     expect(JSON.parse(last_response.body)).to eq(
       'Cookie' => '',
       'Host' => 'example.org',
-      'Reticulated-Spline' => 42,
-      'Version' => 'HTTP/1.0'
+      'Reticulated-Spline' => 42
     )
   end
 end

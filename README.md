@@ -14,9 +14,14 @@ $ bundle install
 $ rackup
 
 Loading NewRelic in developer mode ...
-[2013-06-20 08:57:58] INFO  WEBrick 1.3.1
-[2013-06-20 08:57:58] INFO  ruby 1.9.3 (2013-02-06) [x86_64-darwin11.4.2]
-[2013-06-20 08:57:58] INFO  WEBrick::HTTPServer#start: pid=247 port=9292
+Puma starting in single mode...
+* Puma version: 6.4.0 (ruby 2.7.7-p221) ("The Eagle of Durango")
+*  Min threads: 0
+*  Max threads: 5
+*  Environment: development
+*          PID: 82944
+* Listening on http://127.0.0.1:9292
+* Listening on http://[::1]:9292
 ```
 
 List Routes
@@ -227,6 +232,18 @@ Demonstrates header case-sensitive handling.
 $ curl http://localhost:9292/api/headers/Host
 
 {"Host":"localhost:9292"}
+```
+
+### [stream_data](api/stream_data.rb)
+
+An example of streaming data.
+
+```
+curl http://localhost:9292/api/stream --no-buffer
+1
+2
+3
+...
 ```
 
 New Relic
