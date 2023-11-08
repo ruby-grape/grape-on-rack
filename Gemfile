@@ -8,9 +8,10 @@ gem 'json'
 gem 'mime-types'
 gem 'newrelic_rpm'
 gem 'nokogiri'
-gem 'rack', '< 3'
+gem 'puma'
+gem 'rack'
 gem 'rack-cors'
-gem 'webrick'
+gem 'rackup'
 
 group :development do
   gem 'guard'
@@ -18,6 +19,7 @@ group :development do
   gem 'guard-rack'
   gem 'rake'
   gem 'rubocop'
+  gem 'rubocop-capybara'
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
 end

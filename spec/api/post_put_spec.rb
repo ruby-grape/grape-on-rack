@@ -11,11 +11,13 @@ describe Acme::API do
     get '/api/ring'
     expect(JSON.parse(last_response.body)[:rang].to_i).to be >= 0
   end
+
   context 'with rings' do
-    before :each do
+    before do
       get '/api/ring'
       @rang = JSON.parse(last_response.body)['rang'].to_i
     end
+
     it 'POST ring' do
       2.times do |i|
         post '/api/ring'
@@ -25,12 +27,14 @@ describe Acme::API do
       get '/api/ring'
       expect(last_response.body).to eq({ rang: @rang + 2 }.to_json)
     end
+
     context 'PUT ring' do
       it 'succeeds for 2 rings' do
         put '/api/ring?count=2'
         expect(last_response.status).to eq(200)
         expect(last_response.body).to eq({ rang: @rang + 2 }.to_json)
       end
+
       it 'fails with a missing ring' do
         put '/api/ring'
         expect(last_response.status).to eq(400)

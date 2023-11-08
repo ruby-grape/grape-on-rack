@@ -17,3 +17,9 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-capybara
+  - rubocop-rake
+  - rubocop-rspec
+
