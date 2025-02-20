@@ -10,8 +10,8 @@ describe Acme::API do
   it 'returns all headers' do
     get '/api/headers'
     expect(JSON.parse(last_response.body)).to eq(
-      'Cookie' => '',
-      'Host' => 'example.org'
+      'cookie' => '',
+      'host' => 'example.org'
     )
   end
 
@@ -36,9 +36,9 @@ describe Acme::API do
         'HTTP_RETICULATED_SPLINE' => 42,
         'SOMETHING_ELSE' => 1
     expect(JSON.parse(last_response.body)).to eq(
-      'Cookie' => '',
-      'Host' => 'example.org',
-      'Reticulated-Spline' => 42
+      'cookie' => '',
+      'host' => 'example.org',
+      'reticulated-spline' => 42
     )
   end
 end

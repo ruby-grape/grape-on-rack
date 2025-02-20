@@ -7,6 +7,7 @@ module Acme
     desc 'Returns a plain text file.'
     get 'plain_text' do
       content_type 'text/plain'
+      env['api.format'] = :binary
       'A red brown fox jumped over the road.'
     end
 

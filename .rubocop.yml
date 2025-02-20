@@ -18,8 +18,10 @@ Style/FrozenStringLiteralComment:
 
 inherit_from: .rubocop_todo.yml
 
-require:
-  - rubocop-capybara
+plugins:
   - rubocop-rake
   - rubocop-rspec
+
+require:
+  - rubocop-capybara
 
