@@ -5,7 +5,11 @@ module Acme
     resource :reticulated_splines do
       before do
         params.each_pair do |k, v|
-          params[k] = JSON.parse(v) rescue v
+          params[k] = begin
+            JSON.parse(v)
+          rescue StandardError
+            v
+          end
         end
       end
       params do
