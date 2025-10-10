@@ -21,7 +21,5 @@ inherit_from: .rubocop_todo.yml
 plugins:
   - rubocop-rake
   - rubocop-rspec
-
-require:
   - rubocop-capybara
 
