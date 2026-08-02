@@ -2,7 +2,6 @@ Grape API on Rack
 =================
 
 [![Test](https://github.com/ruby-grape/grape-on-rack/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/ruby-grape/grape-on-rack/actions/workflows/test.yml)
-[![Code Climate](https://codeclimate.com/github/ruby-grape/grape-on-rack.svg)](https://codeclimate.com/github/ruby-grape/grape-on-rack)
 
 A [Grape](http://github.com/ruby-grape/grape) API mounted on Rack.
 
@@ -212,6 +211,23 @@ module Acme
     end
   end
 end
+```
+
+### [stream_file](api/stream_file.rb)
+
+An example that streams a file upload/download through an IO-like interface instead of reading the whole file into memory (see [`upload_file`](api/upload_file.rb) for the in-memory equivalent).
+
+```
+$ curl -X POST -i -F file=@spec/fixtures/grape_logo.png http://localhost:9292/api/download_stream
+
+HTTP/1.1 201 Created
+Content-Type: image/png
+Content-Disposition: attachment; filename*=UTF-8''grape_logo.png
+Vary: Origin
+Content-Length: 4272
+Server: WEBrick/1.4.2 (Ruby/2.6.5/2019-10-01)
+Date: Sat, 18 Jun 2022 02:12:21 GMT
+Connection: Keep-Alive
 ```
 
 ### [entites](api/entities.rb)
