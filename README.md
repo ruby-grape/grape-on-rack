@@ -223,11 +223,18 @@ $ curl -X POST -i -F file=@spec/fixtures/grape_logo.png http://localhost:9292/ap
 HTTP/1.1 201 Created
 Content-Type: image/png
 Content-Disposition: attachment; filename*=UTF-8''grape_logo.png
+Cache-Control: no-cache
 Vary: Origin
-Content-Length: 4272
-Server: WEBrick/1.4.2 (Ruby/2.6.5/2019-10-01)
-Date: Sat, 18 Jun 2022 02:12:21 GMT
-Connection: Keep-Alive
+Transfer-Encoding: chunked
+```
+
+Download the streamed response to a file and verify it's identical to the upload.
+
+```
+$ curl -X POST -F file=@spec/fixtures/grape_logo.png http://localhost:9292/api/download_stream -o grape_logo_downloaded.png
+$ cmp spec/fixtures/grape_logo.png grape_logo_downloaded.png && echo "identical"
+
+identical
 ```
 
 ### [entites](api/entities.rb)
