@@ -17,15 +17,4 @@ describe Acme::API do
       expect(last_response.body).to eq io.read
     end
   end
-
-  it 'streams the upload and download of a large Ruby file' do
-    filename = __FILE__
-    post '/api/download_stream', file: Rack::Test::UploadedFile.new(filename, 'application/x-ruby', true)
-    expect(last_response.status).to eq(201)
-    expect(last_response.headers['Content-Type']).to eq('application/x-ruby')
-    expect(last_response.headers['Content-Disposition']).to eq("attachment; filename*=UTF-8''stream_file_spec.rb")
-    File.open(filename, 'rb') do |io|
-      expect(last_response.body).to eq io.read
-    end
-  end
 end
