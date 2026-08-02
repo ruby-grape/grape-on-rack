@@ -75,7 +75,7 @@ RSpec/SpecFilePathFormat:
     - 'spec/api/post_put_spec.rb'
     - 'spec/api/rescue_from_spec.rb'
     - 'spec/api/stream_data_spec.rb'
-    - 'spec/api/upload_big_file_spec.rb'
+    - 'spec/api/stream_file_spec.rb'
     - 'spec/api/upload_file_spec.rb'
     - 'spec/api/wrap_response_spec.rb'
 

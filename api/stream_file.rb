@@ -13,7 +13,7 @@ module Acme
     end
   end
 
-  class UploadBigFile < Grape::API
+  class StreamFile < Grape::API
     desc 'Upload and download a large file of any format using an IO stream.'
     post 'download_stream' do
       filename = params[:file][:filename]
