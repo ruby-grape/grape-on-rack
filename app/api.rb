@@ -12,7 +12,7 @@ module Acme
     mount ::Acme::GetJson
     mount ::Acme::ContentType
     mount ::Acme::UploadFile
-    mount ::Acme::UploadBigFile
+    mount ::Acme::StreamFile
     mount ::Acme::Entities::API
     mount ::Acme::Headers
     mount ::Acme::StreamData
