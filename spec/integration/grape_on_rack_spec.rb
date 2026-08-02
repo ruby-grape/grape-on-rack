@@ -14,11 +14,11 @@ describe 'Grape on RACK', :js, type: :feature do
       end
 
       it 'increments the ring counter' do
-        expect(find_by_id('ring_value')).to have_content "rang #{@rang + 1} time(s)"
-        expect(find_by_id('ring_action')).to have_content 'click here to ring again'
+        expect(find_by_id('ring_value')).to have_text "rang #{@rang + 1} time(s)"
+        expect(find_by_id('ring_action')).to have_text 'click here to ring again'
         3.times do |i|
           find_by_id('ring_action').click
-          expect(find_by_id('ring_value')).to have_content "rang #{@rang + i + 2} time(s)"
+          expect(find_by_id('ring_value')).to have_text "rang #{@rang + i + 2} time(s)"
         end
       end
     end
@@ -29,7 +29,7 @@ describe 'Grape on RACK', :js, type: :feature do
       end
 
       it 'fetches stream data incrementally' do
-        expect(find_by_id('stream_value')).to have_content "fetching stream data ...\n1\n1 2\n1 2 3\n1 2 3 4\n1 2 3 4 5"
+        expect(find_by_id('stream_value')).to have_text "fetching stream data ...\n1\n1 2\n1 2 3\n1 2 3 4\n1 2 3 4 5"
       end
     end
   end

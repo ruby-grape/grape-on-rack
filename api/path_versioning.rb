@@ -1,6 +1,6 @@
 module Acme
   class PathVersioning < Grape::API
-    version 'vendor', using: :path, vendor: 'acme', format: :json
+    version 'vendor', using: :path, vendor: 'acme'
     desc 'Returns acme.'
     get do
       { path: 'acme' }
