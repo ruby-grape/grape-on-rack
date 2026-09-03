@@ -202,6 +202,8 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    simplecov (1.1.1)
+    simplecov-lcov (0.9.0)
     spoon (0.0.6)
       ffi
     thor (1.5.0)
@@ -246,6 +248,8 @@ DEPENDENCIES
   rubocop-rake
   rubocop-rspec
   selenium-webdriver
+  simplecov
+  simplecov-lcov
 
 BUNDLED WITH
   4.0.16

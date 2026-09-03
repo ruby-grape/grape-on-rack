@@ -18,4 +18,11 @@ describe Acme::API do
       { id: 2, reticulated: false }
     ].to_json)
   end
+
+  it 'leaves a non-JSON param unchanged' do
+    get '/api/reticulated_splines', 'splines' => [
+      { id: 1, reticulated: false }
+    ].to_json, 'not_json' => 'not valid json'
+    expect(last_response.status).to eq(200)
+  end
 end

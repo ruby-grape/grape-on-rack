@@ -2,6 +2,7 @@ Grape API on Rack
 =================
 
 [![Test](https://github.com/ruby-grape/grape-on-rack/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/ruby-grape/grape-on-rack/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/ruby-grape/grape-on-rack/badge.svg?branch=master)](https://coveralls.io/github/ruby-grape/grape-on-rack?branch=master)
 
 A [Grape](http://github.com/ruby-grape/grape) API mounted on Rack.
 
