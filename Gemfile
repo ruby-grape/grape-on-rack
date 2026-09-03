@@ -31,4 +31,6 @@ group :test do
   gem 'rack-test'
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
 end

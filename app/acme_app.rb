@@ -3,7 +3,11 @@ module Acme
     def initialize
       @filenames = ['', '.html', 'index.html', '/index.html']
       @rack_static = ::Rack::Static.new(
+        # Rack::Static requires a fallback app, but since urls: ['/'] matches every
+        # request, it never falls back to this and the lambda is never called.
+        # simplecov:disable
         -> { [404, {}, []] },
+        # simplecov:enable
         root: File.expand_path('../public', __dir__),
         urls: ['/']
       )

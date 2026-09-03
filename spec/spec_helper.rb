@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'simplecov'
 
 ENV['RACK_ENV'] ||= 'test'
 
