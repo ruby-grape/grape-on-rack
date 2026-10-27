@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'builder'
 gem 'grape'
@@ -11,7 +11,7 @@ gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'ostruct'
 gem 'puma'
-gem 'rack'
+gem 'rack', ENV.fetch('RACK_VERSION', '>= 0')
 gem 'rack-cors'
 gem 'rackup'
 

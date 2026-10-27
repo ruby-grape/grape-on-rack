@@ -1,44 +1,53 @@
 name: Tests
 on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
-        ruby:
-          - "3.4"
-          - "4.0"
+        entry:
+          - { ruby: '3.3', rack: '~> 2.2' }
+          - { ruby: '3.3', rack: '~> 3.0' }
+          - { ruby: '3.4', rack: '~> 3.0' }
+          - { ruby: '4.0', rack: '>= 0' }
+    name: Ruby ${{ matrix.entry.ruby }} / Rack ${{ matrix.entry.rack }}
+    env:
+      RACK_VERSION: ${{ matrix.entry.rack }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v7
+      - name: Resolve the selected Rack version instead of the application lockfile
+        run: rm Gemfile.lock
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: ${{ matrix.entry.ruby }}
           bundler-cache: true
-      - uses: browser-actions/setup-geckodriver@latest
-        with:
-          geckodriver-version: "0.32.2"
       - uses: browser-actions/setup-firefox@v1
         with:
-          firefox-version: "134.0.1"
-      - uses: coactions/setup-xvfb@v1
-        with:
-          run: |
-            bundle exec rake spec
+          firefox-version: latest
+      - uses: browser-actions/setup-geckodriver@latest
+      - name: Run tests
+        run: xvfb-run -a bundle exec rake spec
       - name: Coveralls
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: run-${{ matrix.ruby }}
+          file: coverage/lcov.info
+          format: lcov
+          flag-name: ruby-${{ matrix.entry.ruby }}-rack-${{ strategy.job-index }}
           parallel: true
-
   finish:
+    name: Finish Coveralls
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@v2
+      - uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true

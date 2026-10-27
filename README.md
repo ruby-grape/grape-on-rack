@@ -1,41 +1,38 @@
-Grape API on Rack
-=================
+# Grape on Rack
 
 [![Test](https://github.com/ruby-grape/grape-on-rack/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/ruby-grape/grape-on-rack/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/ruby-grape/grape-on-rack/badge.svg?branch=master)](https://coveralls.io/github/ruby-grape/grape-on-rack?branch=master)
 
-A [Grape](http://github.com/ruby-grape/grape) API mounted on Rack.
+A [Grape](https://github.com/ruby-grape/grape) API mounted on Rack.
+
+Tests
+-----
+
+GitHub Actions tests the latest Rack 2.2 and 3.x releases on Ruby 3.3, Rack 3.x on Ruby 3.4, and the newest Rack release on Ruby 4.0. Matrix jobs resolve dependencies independently of the application lockfile so new compatible releases are exercised. Run `bundle exec rake spec` locally, or select a different Rack line with `RACK_VERSION='~> 2.2' bundle update` followed by `RACK_VERSION='~> 2.2' bundle exec rake spec`. Browser examples require Firefox; use `MOZ_HEADLESS=1 bundle exec rake spec` to run them without a display. Run `bundle exec rubocop` for lint.
+
+SimpleCov starts before the application loads. CI uploads `coverage/lcov.info` from each matrix job to Coveralls and finishes the parallel coverage build after all jobs pass.
 
 Run
 ---
 
 ```
 $ bundle install
-$ rackup
-
-Loading NewRelic in developer mode ...
-Puma starting in single mode...
-* Puma version: 6.4.0 (ruby 2.7.7-p221) ("The Eagle of Durango")
-*  Min threads: 0
-*  Max threads: 5
-*  Environment: development
-*          PID: 82944
-* Listening on http://127.0.0.1:9292
-* Listening on http://[::1]:9292
+$ bundle exec rackup
 ```
+
+Use Ruby 3.3 or newer with the default bundle. The application listens at http://localhost:9292.
 
 List Routes
 -----------
 
 ```
-rake routes
+bundle exec rake routes
 ```
 
 Explore the API
 ---------------
 
-Explore the API using [Swagger UI](https://github.com/swagger-api/swagger-ui). Run the application and navigate to [http://locahost:9292/swagger/index.html](http://locahost:9292/swagger/index.html).
-
+Explore the API using [Swagger UI](https://github.com/swagger-api/swagger-ui). Run the application and navigate to [http://localhost:9292/swagger/index.html](http://localhost:9292/swagger/index.html).
 
 ## Examples
 ### [ping](api/ping.rb)
@@ -79,7 +76,7 @@ $ curl -XPOST http://localhost:9292/api/spline -d '{"reticulated":"lots"}' -H "C
 An example that pre-processes params sent as JSON data.
 
 ```
-$ curl http://localhost:9292/api/reticulated_splines?splines=[{"id":1,"reticulated":true},{"id":2,"reticulated":false}]
+$ curl --get --data-urlencode 'splines=[{"id":1,"reticulated":true},{"id":2,"reticulated":false}]' http://localhost:9292/api/reticulated_splines
 
 [{"id":1,"reticulated":false},{"id":2,"reticulated":true}]
 ```
@@ -91,29 +88,10 @@ An example of `rescue_from` that wraps all exceptions in an HTTP error code 500.
 ```
 $ curl -i http://localhost:9292/api/raise
 HTTP/1.1 500 Internal Server Error
-Last-Modified: Wed, 15 Jun 2022 01:12:37 GMT
 Content-Type: text/html
-Content-Length: 234
-Vary: Origin
-Server: WEBrick/1.4.2 (Ruby/2.6.5/2019-10-01)
-Date: Sat, 18 Jun 2022 01:51:25 GMT
-Connection: Keep-Alive
-
-<html>
- <head>
-  <title>Unexpected Error</title>
-</head>
- <body>
-  <h1>Ouch...</h1>
-  <a href="http://rack.rubyforge.org/">
-   <img src="/images/rack-logo.png">
-  </a>
-  <p>
-    Something went terribly wrong.
-  </p>
- </body>
-</html>
 ```
+
+The response body is the [HTML error page](public/errors/500.html). Additional response headers depend on the Rack server.
 
 ### [path_versioning](api/path_versioning.rb)
 
@@ -187,9 +165,6 @@ Content-Type: image/png
 Content-Disposition: attachment; filename*=UTF-8''grape_logo.png
 Vary: Origin
 Content-Length: 4272
-Server: WEBrick/1.4.2 (Ruby/2.6.5/2019-10-01)
-Date: Sat, 18 Jun 2022 02:12:21 GMT
-Connection: Keep-Alive
 ```
 
 ```
@@ -199,10 +174,6 @@ HTTP/1.1 201 Created
 Content-Type: application/x-ruby
 Content-Disposition: attachment; filename*=UTF-8''ping.rb
 Vary: Origin
-Content-Length: 115
-Server: WEBrick/1.4.2 (Ruby/2.6.5/2019-10-01)
-Date: Sat, 18 Jun 2022 02:12:47 GMT
-Connection: Keep-Alive
 
 module Acme
   class Ping < Grape::API
@@ -238,7 +209,7 @@ $ cmp spec/fixtures/grape_logo.png grape_logo_downloaded.png && echo "identical"
 identical
 ```
 
-### [entites](api/entities.rb)
+### [entities](api/entities.rb)
 
 An example of using [grape-entity](https://github.com/ruby-grape/grape-entity).
 
@@ -250,7 +221,7 @@ $ curl http://localhost:9292/api/entities/1
 
 ### [headers](api/headers.rb)
 
-Demonstrates header case-sensitive handling.
+Returns request headers or looks up an individual header. The casing of keys in the full header response depends on the Rack version.
 
 ```
 $ curl http://localhost:9292/api/headers/Host
@@ -273,4 +244,4 @@ curl http://localhost:9292/api/stream --no-buffer
 New Relic
 ---------
 
-The application is setup with NewRelic w/ Developer Mode. Navigate to http://localhost:9292/newrelic after making some API calls.
+The application includes the New Relic Ruby agent. Set `NEW_RELIC_LICENSE_KEY` and optionally `NEW_RELIC_APP_NAME` to report to your New Relic account; configuration is in [`config/newrelic.yml`](config/newrelic.yml). A license key is not required to run the examples locally.

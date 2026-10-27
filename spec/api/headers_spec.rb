@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Acme::API do
+  let(:default_headers) do
+    if Gem::Version.new(Rack.release) < Gem::Version.new('3')
+      { 'Cookie' => '', 'Host' => 'example.org', 'Version' => 'HTTP/1.0' }
+    else
+      { 'cookie' => '', 'host' => 'example.org' }
+    end
+  end
+
   include Rack::Test::Methods
 
   def app
@@ -9,10 +17,7 @@ describe Acme::API do
 
   it 'returns all headers' do
     get '/api/headers'
-    expect(JSON.parse(last_response.body)).to eq(
-      'cookie' => '',
-      'host' => 'example.org'
-    )
+    expect(JSON.parse(last_response.body)).to eq(default_headers)
   end
 
   it 'returns a Host header' do
@@ -35,10 +40,6 @@ describe Acme::API do
     get '/api/headers', nil,
         'HTTP_RETICULATED_SPLINE' => 42,
         'SOMETHING_ELSE' => 1
-    expect(JSON.parse(last_response.body)).to eq(
-      'cookie' => '',
-      'host' => 'example.org',
-      'reticulated-spline' => 42
-    )
+    expect(JSON.parse(last_response.body)).to eq(default_headers.merge('reticulated-spline' => 42))
   end
 end
